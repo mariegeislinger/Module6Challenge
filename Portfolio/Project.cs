@@ -1,0 +1,15 @@
+namespace Portfolio.Models;
+
+public class Project
+{
+    public string Title { get; set; }
+    public string Description { get; set; }
+    public int Year { get; set; }
+
+    public Project(string title, string description, int year)
+    {
+        Title = title;
+        Description = description;
+        Year = year;
+    }
+}

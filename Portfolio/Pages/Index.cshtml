@@ -1,0 +1,47 @@
+﻿@page
+@model Portfolio.Pages.IndexModel
+@{
+    ViewData["Title"] = "Marie Geislinger";
+}
+
+<div class="container mt-4">
+    <h1 class="text-center text-primary">Marie Geislinger</h1>
+    <p class="text-center">Driven by Commitment. Inspired by Curiosity. Powered by Coffee.</p>
+    
+
+    <div class="card my-4">
+        <div class="card-body">
+            <h2>About Me</h2>
+            <p>Detail-oriented technologist with a passion for building reliable systems and improving processes.</p>
+        </div>
+    </div>
+
+    <div class="card my-4">
+        <div class="card-body">
+            <h2>My Projects</h2>
+            @foreach (var project in Model.Projects)
+            {
+                 <div class="alert alert-secondary">
+                    <strong>@project.Title</strong><br />
+                    <em>@project.Description</em><br />
+                    <small>Year: @project.Year</small>
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="card my-4">
+        <div class="card-body">
+            <h2>My Skills</h2>
+             @foreach (var skill in Model.Skills)
+            {
+                <div class="alert alert-info">
+                    <strong>@skill.Name</strong> - 
+                    <small>Proficiency Level (1-5): @skill.ProficiencyLevel</small>
+                </div>
+            }
+        </div>
+    </div>
+
+  
+</div>
