@@ -43,5 +43,35 @@
         </div>
     </div>
 
-  
+    
+      <div class="card my-4">
+    <div class="card-body">
+        <h2>Top Skills</h2>
+
+        @* Declare topSkills in a Razor code block *@
+        @{
+            var topSkills = Model.Skills.Where(s => s.ProficiencyLevel >= 4).ToArray();
+        }
+
+        @* Display badges only if there are top skills *@
+        @if (topSkills.Length > 0)
+        {
+            foreach (var skill in topSkills)
+            {
+                var badgeClass = skill.ProficiencyLevel switch
+                {
+                    4 => "badge bg-success",
+                    5 => "badge bg-success",
+                    _ => "badge bg-secondary"
+                };
+                <span class="@badgeClass me-2 mb-2 d-inline-block">
+                    @skill.Name (@skill.ProficiencyLevel / 5)
+                </span>
+            }
+        }
+
+    </div>
+</div>
+    </div>
+
 </div>
